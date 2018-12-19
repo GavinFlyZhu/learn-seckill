@@ -3,4 +3,25 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <!-- modify servlet to version 3.1 -->
+    <!-- config DispathcerServlet -->
+    <servlet>
+        <servlet-name>seckill-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <!-- config springMVC config files
+            spring-dao.xml, spring-service.xml, spring-web.xml
+            Mybatis      ->    spring        ->    springMVC
+        -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/*.xml</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>seckill-dispatcher</servlet-name>
+        <!-- map all request by default  root "/" -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
