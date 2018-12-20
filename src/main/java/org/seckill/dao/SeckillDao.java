@@ -3,8 +3,7 @@ package org.seckill.dao;
 import org.apache.ibatis.annotations.Param;
 import org.seckill.entity.Seckill;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public interface SeckillDao {
@@ -32,4 +31,9 @@ public interface SeckillDao {
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
 
+    /**
+     * use procedure to kill
+     * @param paramMap
+     */
+    void killByProcedure(Map<String, Object> paramMap);
 }
